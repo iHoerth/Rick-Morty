@@ -1,0 +1,47 @@
+.warning {
+  border: solid red 1px;
+  border-radius: 0.2em;
+}
+
+.danger {
+  font-size: 10px;
+  color: red;
+  margin-left: 10em;
+}
+
+.formWrapper{
+  /* border: 1px solid yellow; */
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 50%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(50, 241, 91, 0.664);
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px;
+}
+
+.formFieldContainer {
+  width: 100%;
+  display: flex;
+  /* border: 1px solid red; */
+  color: white;
+}
+
+.formFieldText {
+  flex:0.4;
+}
+
+.formFieldInput {
+  /* border-radius: 6px; */
+  flex:0.5;
+}
+
