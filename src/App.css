@@ -7,15 +7,11 @@
  }
 
 .App {
-   /* width:100%; */
-   background-image: url('https://images5.alphacoders.com/633/633151.jpg');
-   background-image: url('https://wallpapercave.com/wp/wp1822745.jpg');
+   /* background-image: url('https://images5.alphacoders.com/633/633151.jpg');
+   background-image: url('https://wallpapercave.com/wp/wp1822745.jpg'); */
    background-image: url('https://images6.alphacoders.com/876/876591.jpg');
-   /* background-image: url('https://images.alphacoders.com/872/872870.jpg'); */
-   /* background-image: url('https://images3.alphacoders.com/812/812407.jpg'); */
    background-attachment: fixed;
    background-repeat: no-repeat;
    text-align: center;
-   /* background-position: right -90px; */
    background-position: center;
 }
