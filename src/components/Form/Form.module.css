@@ -1,16 +1,5 @@
-.warning {
-  border: solid red 1px;
-  border-radius: 0.2em;
-}
-
-.danger {
-  font-size: 10px;
-  color: red;
-  margin-left: 10em;
-}
-
-.formWrapper{
-  /* border: 1px solid yellow; */
+.formWrapper {
+  padding: 20px;
   height: 40vh;
   display: flex;
   justify-content: center;
@@ -18,10 +7,13 @@
 }
 
 .formContainer {
+  padding: 20px 20px 10px 20px;
+  box-sizing: content-box;
+  margin: 100px;
   display: flex;
   flex-direction: column;
-  width: 20%;
-  height: 50%;
+  width: 30%;
+  min-width: 180px;
   align-items: center;
   justify-content: space-around;
   background-color: rgba(50, 241, 91, 0.664);
@@ -30,18 +22,42 @@
 }
 
 .formFieldContainer {
-  width: 100%;
   display: flex;
-  /* border: 1px solid red; */
-  color: white;
+  flex-direction: column;
+  width: 100%;
 }
 
 .formFieldText {
-  flex:0.4;
+  width: 100%;
+  color: white;
+  font-size: 15px;
+  text-align: start;
 }
 
 .formFieldInput {
-  /* border-radius: 6px; */
-  flex:0.5;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid gray;
 }
 
+.formButton {
+  background-color: #010222;
+  color: #c7f3ed;
+  margin-top: 20px;
+  width: 100%;
+  align-self: center;
+  justify-self: flex-end;
+}
+
+.warning {
+  border: solid red 1px;
+  border-radius: 0.2em;
+}
+
+.danger {
+  width: 100%;
+  font-size: 15px;
+  color: red;
+}
