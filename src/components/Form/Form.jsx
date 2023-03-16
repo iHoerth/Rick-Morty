@@ -24,9 +24,7 @@ const Form = ({ login }) => {
     if (errors.length) {
       alert("Debe llenar todos los campos");
     } else {
-      login(userData)
-        ? window.alert("Logueado con exito!")
-        : window.alert("Usuario inexistente");
+      login(userData) ? window.alert("Logueado con exito!") : window.alert("Usuario inexistente");
     }
   };
 
@@ -34,11 +32,7 @@ const Form = ({ login }) => {
     <div className={style.formWrapper}>
       <form className={style.formContainer} onSubmit={(e) => handleSubmit(e)}>
         <div className={style.formFieldContainer}>
-          <label
-            className={`${style.formFieldText} ${
-              errors.username && style.danger
-            }`}
-          >
+          <label className={`${style.formFieldText} ${errors.username && style.danger}`}>
             {errors.username || "Usuario"}
           </label>
           <input
@@ -46,18 +40,12 @@ const Form = ({ login }) => {
             type="text"
             onChange={(e) => handleInputChange(e)}
             vale={userData.username}
-            className={`${style.formFieldInput} ${
-              errors.username && style.warning
-            }`}
+            className={`${style.formFieldInput} ${errors.username && style.warning}`}
           />
         </div>
 
         <div className={style.formFieldContainer}>
-          <label
-            className={`${style.formFieldText} ${
-              errors.password && style.danger
-            }`}
-          >
+          <label className={`${style.formFieldText} ${errors.password && style.danger}`}>
             {errors.password || "Contraseña"}
           </label>
           <input
@@ -65,9 +53,7 @@ const Form = ({ login }) => {
             type="text"
             onChange={(e) => handleInputChange(e)}
             vale={userData.password}
-            className={`${style.formFieldInput} ${
-              errors.password && style.warning
-            }`}
+            className={`${style.formFieldInput} ${errors.password && style.warning}`}
           />
         </div>
 

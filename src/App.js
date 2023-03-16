@@ -10,14 +10,11 @@ import { user1 } from "./helpers/constants.js";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  // const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
   const login = (userData) => {
-    if (
-      userData.username === user1.username &&
-      userData.password === user1.password
-    ) {
+    if (userData.username === user1.username && userData.password === user1.password) {
       setAccess(true);
       navigate("/home");
       return true;
@@ -60,37 +57,22 @@ function App() {
       });
   };
 
-  const closeCard = (charId) =>
-    setCharacters(characters.filter((char) => char.id !== charId));
+  const closeCard = (charId) => setCharacters(characters.filter((char) => char.id !== charId));
 
   const getRandomChar = () => getCharById(Math.floor(Math.random() * 826));
 
-  const charAlreadyBeingShown = (charId) =>
-    !!characters.find((char) => parseInt(charId) === char.id);
+  const charAlreadyBeingShown = (charId) => !!characters.find((char) => parseInt(charId) === char.id);
 
   const deleteAllChars = () => setCharacters([]);
 
   return (
     <div className="App" style={{ minHeight: "970px" }}>
-      <Nav
-        getCharById={getCharById}
-        getRandomChar={getRandomChar}
-        deleteAllChars={deleteAllChars}
-        logout={logout}
-      />
+      <Nav getCharById={getCharById} getRandomChar={getRandomChar} deleteAllChars={deleteAllChars} logout={logout} />
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route path="/about" element={<About />} />
-        <Route
-          path="*"
-          element={
-            <Cards to={"/home"} characters={characters} closeCard={closeCard} />
-          }
-        />
-        <Route
-          path="/home"
-          element={<Cards characters={characters} closeCard={closeCard} />}
-        />
+        <Route path="*" element={<Cards to={"/home"} characters={characters} closeCard={closeCard} />} />
+        <Route path="/home" element={<Cards characters={characters} closeCard={closeCard} />} />
         <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
     </div>

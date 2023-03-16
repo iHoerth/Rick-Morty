@@ -5,10 +5,7 @@ import style from "./Card.module.css";
 export default function Card({ character, closeCard }) {
   return (
     <div className={style.cardContainer}>
-      <div
-        className={style.card}
-        style={{ backgroundImage: "url(" + character.image + ")" }}
-      >
+      <div className={style.card} style={{ backgroundImage: "url(" + character.image + ")" }}>
         <div className={style.cardTitle}>
           <p> ID: {character.id}</p>
           <Link to={`/detail/${character.id}`} className={style.characterName}>

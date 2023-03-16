@@ -28,11 +28,7 @@ const Detail = () => {
   }, [detailId]);
 
   if (loading) {
-    return (
-      <div style={{ fontSize: "40px", color: "white" }}>
-        L O A D I N G . . .{" "}
-      </div>
-    );
+    return <div style={{ fontSize: "40px", color: "white" }}>L O A D I N G . . . </div>;
   }
 
   return (
@@ -42,11 +38,7 @@ const Detail = () => {
           <p> ID: {character.id}</p>
           <p>{character.name}</p>
         </div>
-        <img
-          style={{ width: "80%", maxWidth: "600px", justifySelf: "flex-end" }}
-          src={character.image}
-          alt=""
-        ></img>
+        <img style={{ width: "80%", maxWidth: "600px", justifySelf: "flex-end" }} src={character.image} alt=""></img>
 
         <div className={style.detailFooter}>
           <p>{character.species}</p>
