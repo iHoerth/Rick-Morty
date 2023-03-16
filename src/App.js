@@ -71,7 +71,7 @@ function App() {
   const deleteAllChars = () => setCharacters([]);
 
   return (
-    <div className="App" style={{ padding: "25px", minHeight: "920px" }}>
+    <div className="App" style={{ minHeight: "970px" }}>
       <Nav
         getCharById={getCharById}
         getRandomChar={getRandomChar}

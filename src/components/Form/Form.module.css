@@ -1,3 +1,5 @@
+@import "../../helpers/variables.css";
+
 .formWrapper {
   padding: 20px;
   height: 40vh;
@@ -16,7 +18,7 @@
   min-width: 180px;
   align-items: center;
   justify-content: space-around;
-  background-color: rgba(50, 241, 91, 0.664);
+  background-color: var(--purple);
   border-radius: 4px;
   box-shadow: 2px 2px 2px;
 }
@@ -43,12 +45,16 @@
 }
 
 .formButton {
-  background-color: #010222;
-  color: #c7f3ed;
+  background-color: var(--neon);
+  color: var(--purple);
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid black;
   margin-top: 20px;
   width: 100%;
   align-self: center;
   justify-self: flex-end;
+  box-shadow: 2px 2px 2px;
 }
 
 .warning {

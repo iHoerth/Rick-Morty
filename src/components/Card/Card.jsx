@@ -14,12 +14,9 @@ export default function Card({ character, closeCard }) {
           <Link to={`/detail/${character.id}`} className={style.characterName}>
             {character.name}
           </Link>
-          <button
-            className={style.button}
-            onClick={() => closeCard(character.id)}
-          >
+          <div className={style.button} onClick={() => closeCard(character.id)}>
             X
-          </button>
+          </div>
         </div>
 
         <div className={style.cardFooter}>

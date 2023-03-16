@@ -1,6 +1,4 @@
-:root {
-  --borderRadius: 10px;
-}
+@import "../../helpers/variables.css";
 
 .buttonsContainer {
   margin-right: 10px;
@@ -16,14 +14,15 @@
   min-width: 360px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
   box-sizing: border-box;
-  background-color: rgba(50, 241, 91, 0.664);
-  border-radius: var(--borderRadius);
+  background-color: var(--purple);
+  /* border-radius: var(--borderRadius); */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 80px;
   margin: 0px auto;
   box-sizing: border-box;
+  color: var(--purple);
 }
 
 .NavLinks {
@@ -49,15 +48,18 @@
 }
 
 .button {
+  margin: 2px;
   display: flex;
+  justify-content: center;
+  align-content: center;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 12px;
-  /* max-width: 180px; */
-  min-width: 200px;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid black;
   border-radius: var(--borderRadius);
-  background-color: #010222;
-  color: #c7f3ed;
+  background-color: var(--neon);
+  color: var(--purple);
 }
 
 @media (max-width: 1000px) {

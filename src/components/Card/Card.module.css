@@ -1,13 +1,10 @@
 :root {
   --borderRadius: 10px;
+  --bgColor: rgba(180, 255, 199, 0.568);
 }
 
 .container {
   border: 2px solid blue;
-}
-
-.button {
-  position: relative;
 }
 
 .card {
@@ -23,6 +20,8 @@
   border-radius: var(--borderRadius);
 }
 .card > * > * {
+  padding: 3px;
+  background-color: var(--bgColor);
   border: 1px solid black;
   border-radius: 4px;
 }
@@ -59,7 +58,6 @@
 .characterName {
   text-decoration: none;
   font-size: 18px;
-  align-self: flex-start;
   padding: 0px;
   margin: 0px;
   color: black;
@@ -72,4 +70,29 @@
   justify-content: space-between;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.button {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  background-color: rgb(219, 88, 88);
+}
+
+.characterName:hover {
+  transition: 100ms;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.button:hover {
+  transition: 100ms;
+  transform: scale(1.05);
+  cursor: pointer;
 }
