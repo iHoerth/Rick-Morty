@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { addFavorites, removeFavorites } from "../../redux/actions";
 
-export default function Card({ character, closeCard }) {
+function Card({ character, closeCard }) {
   const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -21,12 +21,12 @@ export default function Card({ character, closeCard }) {
   };
 
   useEffect(() => {
+    console.log('EFFECT EN', character, myFavorites)
     if (myFavorites.find((favorite) => favorite.id === character.id)) {
-      setIsFav(true);
-    } else {
-      setIsFav(false);
+      return setIsFav(true);
     }
-  }, [myFavorites, character]);
+    return setIsFav(false);
+  }, [myFavorites]);
 
   return (
     <div className={style.cardContainer}>
@@ -50,3 +50,7 @@ export default function Card({ character, closeCard }) {
     </div>
   );
 }
+
+const MemoizedCard = memo(Card);
+
+export default MemoizedCard;

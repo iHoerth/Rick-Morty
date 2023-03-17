@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { login as loginAction, logout as logoutAction } from './redux/actions';
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import Form from "./components/Form/Form.jsx";
@@ -12,34 +13,22 @@ import { user1 } from "./helpers/constants.js";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
-  const login = (userData) => {
-    if (userData.username === user1.username && userData.password === user1.password) {
-      setAccess(true);
-      navigate("/home");
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const access = useSelector(({ access }) => access);
+  const loginFailure = useSelector(({ loginFailure }) => loginFailure);
+  const myFavorites = useSelector((state) => state.myFavorites)
+  const dispatch = useDispatch()
 
+  const favoriteCharacters = characters.filter(char => myFavorites.find(({id}) => id === char.id ));
+
+  const login = (userData) => dispatch(loginAction(userData));
   const logout = () => {
-    setAccess(false);
-  };
-
-  // useEffect(() => {
-  //   if (access) {
-  //     navigate("/home");
-  //   } else {
-  //     navigate("/");
-  //   }
-  //   console.log(access);
-  // }, [access]);
+    dispatch(logoutAction());
+    navigate('/');
+  }
 
   useEffect(() => {
-    setCharacters([]);
     getRandomChar();
   }, []);
 
@@ -72,14 +61,17 @@ function App() {
 
   return (
     <div className="App" style={{ minHeight: "970px" }}>
-      <Nav getCharById={getCharById} getRandomChar={getRandomChar} deleteAllChars={deleteAllChars} logout={logout} />
-      <Routes>
-        <Route path="/" element={<Form login={login} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<Cards to={"/home"} characters={characters} closeCard={closeCard} />} />
-        <Route path="/home" element={<Cards characters={characters} closeCard={closeCard} />} />
-        <Route path="/detail/:detailId" element={<Detail />} />
-      </Routes>
+      <Nav access={access} getCharById={getCharById} getRandomChar={getRandomChar} deleteAllChars={deleteAllChars} logout={logout} />
+      {access ? (
+        <Routes>
+          <Route path="/" element={<Cards to={"/home"} characters={characters} closeCard={closeCard} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/home" element={<Cards characters={characters} closeCard={closeCard} />} />
+          <Route path="/favorites" element={<Cards characters={favoriteCharacters} closeCard={closeCard} />} />
+          <Route path="/detail/:detailId" element={<Detail />} />
+          <Route path="*" element={<Cards to={"/home"} characters={characters} closeCard={closeCard} />} />
+        </Routes>
+      ) : <Form login={login} loginFailure={loginFailure} />}
     </div>
   );
 }

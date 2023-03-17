@@ -5,8 +5,8 @@ const Cards = ({ characters, closeCard }) => {
   return (
     <div className={style.itemContainerWrapper}>
       <div className={style.itemContainer}>
-        {characters.map((character, i) => (
-          <Card character={character} key={i} closeCard={closeCard} />
+        {characters.map((character) => (
+          <Card character={character} key={character.id} closeCard={closeCard} />
         ))}
       </div>
     </div>
