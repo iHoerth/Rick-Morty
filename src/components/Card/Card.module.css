@@ -96,3 +96,17 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+
+.favorite {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border: 1px solid red;
+}
+
+.notFavorite {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 0, 0, 0);
+  border: 2px solid red;
+}

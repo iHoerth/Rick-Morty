@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import Form from "./components/Form/Form.jsx";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
+
 import "./App.css";
 import { user1 } from "./helpers/constants.js";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  // const [access, setAccess] = useState(false);
+  const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
   const login = (userData) => {
@@ -57,7 +59,10 @@ function App() {
       });
   };
 
-  const closeCard = (charId) => setCharacters(characters.filter((char) => char.id !== charId));
+  const closeCard = (charId) => {
+    const result = characters.filter((char) => char.id !== charId);
+    setCharacters([...result]);
+  };
 
   const getRandomChar = () => getCharById(Math.floor(Math.random() * 826));
 
