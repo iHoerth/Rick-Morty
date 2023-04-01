@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   const getCharById = (charId) => {
-    fetch(`https://rickandmortyapi.com/api/character/${charId}`)
+    fetch(`http://localhost:3001/rickandmorty/onsearch/${charId}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {

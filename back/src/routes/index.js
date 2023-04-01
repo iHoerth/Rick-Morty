@@ -24,7 +24,7 @@ router.post('/rickandmorty/fav', (req,res) => {
 })
 
 
-router.get("/onsearch/:id", (req, res) => {
+router.get("/rickandmorty/onsearch/:id", (req, res) => {
   const { id } = req.params;
   try {
     // const result = getCharById(id);
@@ -34,10 +34,10 @@ router.get("/onsearch/:id", (req, res) => {
   }
 });
 
-router.get("/detail/:id", (req, res) => {
+router.get("/rickandmorty/detail/:id", (req, res) => {
   const { id } = req.params;
   try {
-    // const result = getCharDetail(id);
+    const result = getCharDetail(id);
     res.status(200).json({ succes: "ok" });
   } catch (error) {
     res.status(400).json({ error: error.message });
