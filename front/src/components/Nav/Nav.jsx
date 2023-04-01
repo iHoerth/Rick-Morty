@@ -3,7 +3,7 @@ import { useParams, Link, NavLink } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./Nav.module.css";
 
-const Nav = ({ getCharById, getRandomChar, deleteAllChars, logout }) => {
+const Nav = ({ access, getCharById, getRandomChar, deleteAllChars, logout }) => {
   return (
     <div className={styles.NavBar}>
       <NavLink className={styles.NavLinks}>
@@ -15,9 +15,16 @@ const Nav = ({ getCharById, getRandomChar, deleteAllChars, logout }) => {
           About
         </NavLink>
 
-        <NavLink className={styles.inactive} to="/" onClick={logout}>
-          Logout
+        {access && (
+          <NavLink className={styles.inactive} to="/" onClick={logout}>
+            Logout
+          </NavLink>
+        )}
+
+        <NavLink className={styles.inactive} to="/favorites">
+          My favorites!
         </NavLink>
+
       </NavLink>
 
       <SearchBar getCharById={getCharById} />

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Form.module.css";
 import { validate } from "../../helpers/Helpers.jsx";
 
-const Form = ({ login }) => {
+const Form = ({ login, loginFailure }) => {
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -12,6 +12,12 @@ const Form = ({ login }) => {
     username: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (loginFailure) {
+      alert("Usuario no encontrado");
+    }
+  }, [loginFailure]);
 
   const handleInputChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -24,7 +30,7 @@ const Form = ({ login }) => {
     if (errors.length) {
       alert("Debe llenar todos los campos");
     } else {
-      login(userData) ? window.alert("Logueado con exito!") : window.alert("Usuario inexistente");
+      login(userData);
     }
   };
 
